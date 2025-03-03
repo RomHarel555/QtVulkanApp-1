@@ -41,3 +41,7 @@ std::string VisualObject::getName() const
 {
     return mName;
 }
+void VisualObject::setPosition(const QVector3D& pos) {
+    mMatrix.setToIdentity();
+    mMatrix.translate(pos);
+}

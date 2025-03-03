@@ -254,6 +254,23 @@ void Renderer::initSwapChainResources()
     mCamera.perspective(45.0f, sz.width() / (float) sz.height(), 0.01f, 100.0f);
 }
 
+
+void Renderer::addObject(VisualObject *obj) {
+    mObjects.push_back(obj);
+}
+
+void Renderer::removeObject(VisualObject *obj) {
+    mObjects.erase(std::remove(mObjects.begin(), mObjects.end(), obj), mObjects.end());
+}
+
+void Renderer::removeObjectAt(int index) {
+    if (index >= 0 && index < mObjects.size()) {
+        mObjects.erase(mObjects.begin() + index);
+    }
+}
+
+
+
 void Renderer::startNextFrame()
 {
     //OEF: Handeling input from keyboard and mouse is done in VulkanWindow

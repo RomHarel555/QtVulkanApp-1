@@ -8,6 +8,9 @@
 #include "Triangle.h"
 #include "TriangleSurface.h"
 #include "VisualObject.h"
+#include <vector>
+#include "VisualObject.h"
+
 
 class Renderer : public QVulkanWindowRenderer
 {
@@ -19,6 +22,12 @@ public:
     // vertex descriptions for the shaders
     // making the shaders, etc
     void initResources() override;
+
+    void addObject(VisualObject *obj);
+    void removeObject(VisualObject *obj);
+    void removeObjectAt(int index);
+
+
 
     //Set up resources - only MVP-matrix for now:
     void initSwapChainResources() override;
